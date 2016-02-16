@@ -3571,3 +3571,19 @@ java.util.ConcurrentModificationException: null
 2016-02-16 09:50:46,946 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\AVT\consulta_relatorios\workflow-services\src\main\resources
 2016-02-16 09:50:46,948 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2016-02-16 09:50:46,948 [Worker-11] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\AVT\consulta_relatorios\workflow-services\src\test\resources
+2016-02-16 13:46:32,439 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-02-16 13:46:32,463 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\AVT\consulta_relatorios\consulta-relatorio\src\main\resources
+2016-02-16 13:46:32,465 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-02-16 13:46:32,466 [Worker-3] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\AVT\consulta_relatorios\consulta-relatorio\src\test\resources
+2016-02-16 13:46:47,349 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-02-16 13:46:47,350 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\AVT\consulta_relatorios\consulta-relatorios\src\main\resources
+2016-02-16 13:46:47,351 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-02-16 13:46:47,351 [Worker-2] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\AVT\consulta_relatorios\consulta-relatorios\src\test\resources
+2016-02-16 14:07:19,394 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-02-16 14:07:19,399 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\AVT\consulta_relatorios\consulta-relatorio\src\main\resources
+2016-02-16 14:07:19,402 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-02-16 14:07:19,402 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\AVT\consulta_relatorios\consulta-relatorio\src\test\resources
+2016-02-16 14:07:25,871 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-02-16 14:07:25,872 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\AVT\consulta_relatorios\consulta-relatorios\src\main\resources
+2016-02-16 14:07:25,873 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2016-02-16 14:07:25,873 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\AVT\consulta_relatorios\consulta-relatorios\src\test\resources
