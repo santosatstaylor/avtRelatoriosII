@@ -1,0 +1,2 @@
+127.0.0.1 - - [27/Jan/2016:14:38:48 -0200] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [27/Jan/2016:14:48:24 -0200] "GET /consulta-relatorios/api/gera-binario?arquivo=//PCIND00427/arquivos/avt_arquivo.pdf HTTP/1.1" 200 25851

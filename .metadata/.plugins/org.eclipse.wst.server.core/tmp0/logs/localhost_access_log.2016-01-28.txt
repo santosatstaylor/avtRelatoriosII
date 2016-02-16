@@ -1,0 +1,7 @@
+127.0.0.1 - - [28/Jan/2016:16:07:24 -0200] "GET / HTTP/1.1" 404 994
+0:0:0:0:0:0:0:1 - - [28/Jan/2016:16:08:16 -0200] "GET /consulta-relatorios/api/gera-binario?arquivo=//PCIND00427/arquivos/FPTA023.PDF HTTP/1.1" 200 47
+0:0:0:0:0:0:0:1 - - [28/Jan/2016:16:08:47 -0200] "GET /consulta-relatorios/api/gera-binario?arquivo=//PCIND00427/arquivos/FPTA023.PTT HTTP/1.1" 404 38
+0:0:0:0:0:0:0:1 - - [28/Jan/2016:16:08:54 -0200] "GET /consulta-relatorios/api/gera-binario?arquivo=//PCIND00427/arquivos/FPTA023.PDF HTTP/1.1" 200 47
+0:0:0:0:0:0:0:1 - - [28/Jan/2016:16:21:41 -0200] "GET /consulta-relatorios/arquivos/FPTA023.PDF HTTP/1.1" 404 1010
+0:0:0:0:0:0:0:1 - - [28/Jan/2016:16:21:41 -0200] "GET /favicon.ico HTTP/1.1" 404 1016
+127.0.0.1 - - [28/Jan/2016:17:24:09 -0200] "GET / HTTP/1.1" 404 994

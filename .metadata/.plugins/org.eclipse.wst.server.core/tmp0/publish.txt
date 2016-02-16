@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Fri Jan 29 11:26:21 BRST 2016
+org.eclipse.jst.j2ee.server\:mobile-server-data=WEB-INF/lib/mobile-server-data-2.0.6-SNAPSHOT.jar
+org.eclipse.jst.j2ee.server\:mobile-server-authentication=WEB-INF/lib/mobile-server-authentication-2.0.6-SNAPSHOT.jar

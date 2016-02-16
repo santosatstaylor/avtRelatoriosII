@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;br.com.senior.mock&apos; to &apos;br.com.senior.mock.dto&apos;&#x0D;&#x0A;- Original project: &apos;consulta-relatorios&apos;&#x0D;&#x0A;- Original element: &apos;consulta-relatorios/src-main-java/br.com.senior.mock&apos;&#x0D;&#x0A;- Renamed element: &apos;consulta-relatorios/src-main-java/br.com.senior.mock.dto&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;br.com.senior.mock&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src-main-java&lt;br.com.senior.mock" name="br.com.senior.mock.dto" qualified="false" references="true" stamp="1448976103816" textual="false" version="1.0"/>
+</session>

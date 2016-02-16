@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;br.com.senior.rest.services.MuApplicationBinder&apos; to &apos;MyApplicationBinder&apos;&#x0D;&#x0A;- Original project: &apos;consulta-relatorios&apos;&#x0D;&#x0A;- Original element: &apos;br.com.senior.rest.services.MuApplicationBinder&apos;&#x0D;&#x0A;- Renamed element: &apos;br.com.senior.rest.services.MyApplicationBinder&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;MuApplicationBinder&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src-main-java&lt;br.com.senior.rest.services{MuApplicationBinder.java[MuApplicationBinder" matchStrategy="1" name="MyApplicationBinder" qualified="false" references="true" similarDeclarations="false" stamp="1452276450540" textual="false" version="1.0"/>
+</session>

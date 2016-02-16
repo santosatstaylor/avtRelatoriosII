@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Extract local variable &apos;readAllBytes&apos; from expression &apos;Files.readAllBytes(file.toPath())&apos;&#x0D;&#x0A;- Original project: &apos;consulta-relatorios&apos;&#x0D;&#x0A;- Variable name: &apos;readAllBytes&apos;&#x0D;&#x0A;- Destination method: &apos;br.com.senior.rest.services.RelatoriosAPI.transferePDF()&apos;&#x0D;&#x0A;- Variable expression: &apos;Files.readAllBytes(file.toPath())&apos;&#x0D;&#x0A;- Replace occurrences of expression with variable" description="Extract local variable &apos;readAllBytes&apos;" final="false" id="org.eclipse.jdt.ui.extract.temp" input="/src-main-java&lt;br.com.senior.rest.services{RelatoriosAPI.java" name="readAllBytes" replace="true" selection="8738 33" stamp="1453391506752" version="1.0"/>
+</session>

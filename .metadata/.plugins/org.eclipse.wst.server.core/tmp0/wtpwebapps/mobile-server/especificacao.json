@@ -1,0 +1,466 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Mobilidade Autenticação e Autorização API",
+        "description": "Serviços de autenticação e autorização de usuários da plataforma de mobilidade.</br>&nbsp;</br>Url base: https://mobilidade.senior.com.br/services",
+        "version": "v1"
+    },
+    "host": "mobilidade.senior.com.br",
+    "schemes": [
+        "https"
+    ],
+    "basePath": "/services",
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/auth": {
+            "post": {
+                "tags": [
+                    "Autenticação"
+                ],
+                "summary": "Serviço de autenticação",
+                "description": "Responsável pela autenticação de usuários na plataforma de mobilidade.",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "usuario",
+                        "description": "Informações do usuário a ser autenticado",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Autenticacao"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Autenticação realizada com sucesso",
+                        "schema": {
+                            "$ref": "#/definitions/Token"
+                        }
+                    },
+                    "400": {
+                        "description": "Mais de um inquilino encontrado. Esta situação pode ocorrer quando o e-mail do usuário a ser autenticado existe em mais de um inquilino e não foi informado na requisição o inquilino a ser autenticado.",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Inquilino"
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Acesso não autorizado. Verifique o motivo na mensagem de erro.",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "403": {
+                        "description": "Acesso não autorizado. Verifique o motivo na mensagem de erro. Por exemplo, data de validade das informações de licenciamento expirou (proprietária).",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Erro não esperado durante a importação de colaboradores.",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/usuario": {
+            "get": {
+                "tags": [
+                    "Autorização"
+                ],
+                "summary": "Obtém informações do usuário autenticado",
+                "description": "Responsável por forneceder informações sobre o usuário autenticado.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Token de autenticação do usuário.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Informações do usuário autenticado",
+                        "schema": {
+                            "$ref": "#/definitions/Usuario"
+                        }
+                    },
+                    "400": {
+                        "description": "Token de autorização não informado ou inválido.",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "404": {
+                        "description": "Não foi possível localizar informações sobre o usuário relacionado ao token de autorização.",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    },
+                    "500": {
+                        "description": "Erro não esperado.",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/usuario/permissoes": {
+            "get": {
+                "tags": [
+                    "Autorização"
+                ],
+                "summary": "Obtém informações de permissões do usuário autenticado",
+                "description": "Responsável por forneceder informações sobre o licenciamento e grupos de segurança do usuário autenticado.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "header",
+                        "name": "Authorization",
+                        "description": "Token de autenticação do usuário.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Informações do usuário autenticado",
+                        "schema": {
+                            "$ref": "#/definitions/Permissao"
+                        }
+                    },
+                    "400": {
+                        "description": "Token de autorização não informado ou inválido.",
+                        "schema": {
+                            "items": {
+                                "$ref": "#/definitions/Error"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Não foi possível localizar informações o usuário relacionado ao token de autorização.",
+                        "schema": {
+                            "items": {
+                                "$ref": "#/definitions/Error"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro não esperado.",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        },
+        "/parameters": {
+            "post": {
+                "tags": [
+                    "Provisionamento"
+                ],
+                "summary": "Efetua o provisionamento de um inquilino",
+                "description": "Responsável por provisionar os recursos de infraestrutura necessários para o uso da solução de mobilidade.",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Informações de provisionamento do inquilino",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Provisionamento"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Inquilino provisionado com sucesso"
+                    },
+                    "400": {
+                        "description": "Informações inválidas.",
+                        "schema": {
+                            "items": {
+                                "$ref": "#/definitions/Error"
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Erro não esperado.",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Token": {
+            "description": "token com as informação de acesso aos serviços de mobilidade que exigam autenticação;",
+            "properties": {
+                "token": {
+                    "type": "string",
+                    "description": "chave de autorização de acesso aos serviços"
+                },
+                "codigoUsuario": {
+                    "type": "integer",
+                    "description": "código interno do usuário autenticado"
+                }
+            }
+        },
+        "Autenticacao": {
+            "description": "informações de autenticação de um usuário",
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "description": "e-mail do usuário"
+                },
+                "senha": {
+                    "type": "string",
+                    "description": "senha do usuário no sistema on-premise (RH, ERP, Acesso, etc)"
+                },
+                "provedorDeAutenticacao": {
+                    "type": "integer",
+                    "description": "código do web service de autenticação no on-premise utilizado para efetuar a autenticação do usuário. Exemplo: 1-ronda, 2-sapiens, 3-acesso, etc.",
+                    "enum": [
+                        1,
+                        2,
+                        3
+                    ]
+                },
+                "inquilino": {
+                    "description": "(opcional) inquilino ao qual o usuário pertence",
+                    "$ref": "#/definitions/Inquilino"
+                }
+            }
+        },
+        "Usuario": {
+            "description": "informações sobre um usuário",
+            "properties": {
+                "nomeLongo": {
+                    "type": "string",
+                    "description": "nome completo do usuário"
+                },
+                "nomeCurto": {
+                    "type": "string",
+                    "description": "nome do usuário para acesso aos sistemas Senior (username)"
+                },
+                "nomeInquilino": {
+                    "type": "string",
+                    "description": "nome do inquilino ao qual o usuário pertence. Este nome é o nome para o qual o sistema está licenciado (proprietária)."
+                },
+                "codigoInquilino": {
+                    "type": "integer",
+                    "description": "código do inquilino conforme o código do cliente contido na proprietária"
+                },
+                "provedorDeAutenticacao": {
+                    "type": "integer",
+                    "description": "código do web service de autenticação no on-premise utilizado para efetuar a autenticação do usuário. Exemplo: 1-ronda, 2-sapiens, 3-acesso, etc.",
+                    "enum": [
+                        1,
+                        2,
+                        3
+                    ]
+                },
+                "codigoUsuarioSistema": {
+                    "type": "integer",
+                    "description": "código interno do usuário no sistema on-premise"
+                }
+            }
+        },
+        "Inquilino": {
+            "description": "Informações sobre o inquilino",
+            "properties": {
+                "codigo": {
+                    "type": "integer",
+                    "description": "código interno do inquilino"
+                },
+                "codigoInquilinoSistema": {
+                    "type": "integer",
+                    "description": "código interno do inquilino no sistema on-premise (ERP, RH, etc)"
+                },
+                "nome": {
+                    "type": "string",
+                    "description": "nome completo do inquilino conforme o nome do cliente que consta no licenciamento do produto (proprietária)."
+                }
+            }
+        },
+        "Permissao": {
+            "properties": {
+                "grupos": {
+                    "description": "lista de grupos de segurança ao qual o usuário autenticado pertence",
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "sistemas": {
+                    "description": "lista de sistemas e módulos que o usuário autenticado possui licenciamento",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Sistema"
+                    }
+                }
+            }
+        },
+        "Sistema": {
+            "properties": {
+                "codigo": {
+                    "type": "integer",
+                    "description": "código único do sistema conforme consta no licenciamento (proprietária)"
+                },
+                "nome": {
+                    "type": "string",
+                    "description": "nome único do sistema conforme consta no licenciamento (proprietária)"
+                },
+                "modulos": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Modulo"
+                    }
+                }
+            }
+        },
+        "Modulo": {
+            "description": "informações sobre os módulos de sistemas do inquilino conforme consta no licenciamento (proprietária)",
+            "properties": {
+                "codigo": {
+                    "type": "integer",
+                    "description": "código único do módulo conforme consta no licenciamento (proprietária)"
+                },
+                "nome": {
+                    "type": "string",
+                    "description": "nome do módulo conforme consta no licenciamento (proprietária)"
+                },
+                "data": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "data de validade do módulo conforme consta no licenciamento (proprietária)"
+                }
+            }
+        },
+        "Provisionamento": {
+            "properties": {
+                "tenant": {
+                    "$ref": "#/definitions/Tenant"
+                },
+                "users": {
+                    "description": "lista de usuários com Direito de Uso dos aplicativos móveis",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/User"
+                    }
+                },
+                "groups": {
+                    "description": "lista de grupos de segurança e seus usuários com Direito de Uso dos aplicavitos móveis",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Group"
+                    }
+                },
+                "properties": {
+                    "description": "lista de parametrizações da solução como por exemplo, url dos web services no on-premise, versão do sistema, etc.",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Property"
+                    }
+                }
+            }
+        },
+        "Tenant": {
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "description": "codigo do inquilino conforme consta no licenciamento (Proprietária)"
+                },
+                "provedorAutenticacao": {
+                    "type": "integer"
+                },
+                "proprietariaBase64": {
+                    "type": "string",
+                    "description": "arquivo de licenciamento (Proprietária) em formato base 64"
+                }
+            }
+        },
+        "User": {
+            "properties": {
+                "codigoSistema": {
+                    "type": "string"
+                },
+                "userName": {
+                    "type": "string"
+                },
+                "longName": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                }
+            }
+        },
+        "Group": {
+            "properties": {
+                "groupId": {
+                    "type": "integer"
+                },
+                "groupName": {
+                    "type": "string"
+                },
+                "users": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/User"
+                    }
+                }
+            }
+        },
+        "Property": {
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            }
+        },
+        "Error": {
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "Código de erro."
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Mensagem do erro."
+                }
+            }
+        }
+    }
+}
